@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<section class="card">
+  <h1>Welcome back</h1>
+  <p class="muted">Log in to access your dashboard.</p>
+
+  <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+  <% } %>
+
+  <form action="/login" method="POST" novalidate>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" value="<%= values.username || '' %>"
+           autocomplete="username" required autofocus>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+    <button type="submit" class="btn">Log in</button>
+  </form>
+
+  <p class="muted center">Don't have an account? <a href="/register">Register</a></p>
+</section>
+
+<%- include('partials/footer') %>

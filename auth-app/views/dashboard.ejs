@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+<section class="card card-wide">
+  <h1>Hello, <%= user.username %> 👋</h1>
+  <p class="muted">You are logged in. This page is only visible to authenticated users.</p>
+
+  <dl class="details">
+    <dt>Username</dt>
+    <dd><%= user.username %></dd>
+    <dt>Member since</dt>
+    <dd><%= user.createdAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) %></dd>
+    <dt>Account ID</dt>
+    <dd><code><%= user._id %></code></dd>
+  </dl>
+
+  <form action="/logout" method="POST">
+    <button type="submit" class="btn btn-outline">Log out</button>
+  </form>
+</section>
+
+<%- include('partials/footer') %>

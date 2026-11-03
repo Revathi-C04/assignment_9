@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+
+<section class="card">
+  <h1>Create an account</h1>
+  <p class="muted">Pick a username and a password of at least 8 characters.</p>
+
+  <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+  <% } %>
+
+  <form action="/register" method="POST" novalidate>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" value="<%= values.username || '' %>"
+           autocomplete="username" minlength="3" maxlength="30" required autofocus>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" autocomplete="new-password" minlength="8" required>
+
+    <label for="confirmPassword">Confirm password</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" minlength="8" required>
+
+    <button type="submit" class="btn">Register</button>
+  </form>
+
+  <p class="muted center">Already registered? <a href="/login">Log in</a></p>
+</section>
+
+<%- include('partials/footer') %>
